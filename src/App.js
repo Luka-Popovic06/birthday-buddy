@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import Birthdays from "./Birthdays";
+import Birthday from "./Birthdays";
 const boddies = [
   {
     img: "person-1.jpeg",
@@ -53,7 +53,7 @@ function BirthdayBuddyApp() {
         {friends.map((friend) => {
           const { img, firstName, lastName, years, id } = friend;
           return (
-            <Birthdays
+            <Birthday
               key={id}
               src={img}
               firstName={firstName}
