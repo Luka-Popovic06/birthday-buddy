@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import Birthdays from "./Birthdays";
-const boddy = [
+const boddies = [
   {
     img: "person-1.jpeg",
     firstName: "Bertie",
@@ -38,3 +38,36 @@ const boddy = [
     id: 5,
   },
 ];
+function BirthdayBuddyApp() {
+  const [friends, setFriends] = useState(boddies);
+  const clearAll = () => {
+    setFriends([]);
+  };
+
+  return (
+    <div className="App">
+      <h1 className="h1">
+        <span>{friends.length}</span> Birthdays Today
+      </h1>
+      <ul className="list_box">
+        {friends.map((friend) => {
+          const { img, firstName, lastName, years, id } = friend;
+          return (
+            <Birthdays
+              key={id}
+              src={img}
+              firstName={firstName}
+              lastName={lastName}
+              years={years}
+            />
+          );
+        })}
+      </ul>
+      <button className="btn" onClick={clearAll}>
+        Clear All
+      </button>
+    </div>
+  );
+}
+
+export default BirthdayBuddyApp;
