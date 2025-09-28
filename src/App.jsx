@@ -1,6 +1,6 @@
 import "./App.css";
-import React, { useState } from "react";
-import Birthday from "./Birthdays";
+import { useState } from "react";
+import Birthday from "./Birthday";
 const boddies = [
   {
     img: "person-1.jpeg",
@@ -43,7 +43,9 @@ function BirthdayBuddyApp() {
   const clearAll = () => {
     setFriends([]);
   };
-
+  const deleteFriend = (id) => {
+    setFriends(friends.filter((friend) => friend.id !== id));
+  };
   return (
     <div className="App">
       <h1 className="h1">
@@ -51,15 +53,9 @@ function BirthdayBuddyApp() {
       </h1>
       <ul className="list_box">
         {friends.map((friend) => {
-          const { img, firstName, lastName, years, id } = friend;
+          //const { img, firstName, lastName, years, id } = friend;
           return (
-            <Birthday
-              key={id}
-              src={img}
-              firstName={firstName}
-              lastName={lastName}
-              years={years}
-            />
+            <Birthday key={friend.id} {...friend} onDelete={deleteFriend} />
           );
         })}
       </ul>
