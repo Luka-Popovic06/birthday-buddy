@@ -44,8 +44,12 @@ function BirthdayBuddyApp() {
     setFriends([]);
   };
   const deleteFriend = (id) => {
-    setFriends(friends.filter((friend) => friend.id !== id));
+    //setFriends(friends.filter((friend) => friend.id !== id));
+    setFriends((prev) => {
+      return prev.filter((friend) => friend.id !== id);
+    });
   };
+  //prev-znaci da se uzima proslo stanje array, bolje je od koriscenja friends array-a
   return (
     <div className="App">
       <h1 className="h1">
