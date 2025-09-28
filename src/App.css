@@ -68,3 +68,25 @@ body {
 .btn:hover {
   transform: scale(1.05);
 }
+.list-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.delete-btn {
+  border-radius: 50%;
+  background-color: #2575fc;
+  transition: transform 0.2s;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+.delete-btn:hover {
+  transform: scale(1.05);
+}
+.icon-delete {
+  width: 22px;
+  height: 22px;
+  color: rgb(99, 64, 213);
+}
